@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Valentine 💖</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            padding: 15px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            background: rgba(255,255,255,0.15);
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+        }
+
+        p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin: 15px 0;
+        }
+
+        .heart {
+            width: 80px;
+            height: 80px;
+            background: red;
+            position: relative;
+            margin: 25px auto;
+            transform: rotate(-45deg);
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            width: 80px;
+            height: 80px;
+            background: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .heart::before {
+            top: -40px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 40px;
+            top: 0;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        button {
+            flex: 1 1 140px;
+            max-width: 180px;
+            padding: 12px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .yes {
+            background: #00ff99;
+            color: black;
+        }
+
+        .no {
+            background: #ff4d4d;
+            color: white;
+        }
+
+        /* POPUPS */
+        .popup {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .popup-content {
+            background: white;
+            color: black;
+            padding: 25px 20px;
+            border-radius: 15px;
+            text-align: center;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .popup-content p {
+            font-size: 1.1rem;
+        }
+
+        .popup-content button {
+            margin-top: 15px;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 20px;
+            background: #ff4d4d;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Happy Valentine's Day ❤️</h1>
+    <p>You make my life beautiful every day.</p>
+
+    <div class="heart"></div>
+
+    <p>Will you be my Valentine? 💍</p>
+
+    <div class="buttons">
+        <button class="yes" onclick="openYes()">Yes 💕</button>
+        <button class="no" onclick="openNo()">Not No 😜</button>
+    </div>
+</div>
+
+<!-- YES POPUP -->
+<div id="yesPopup" class="popup">
+    <div class="popup-content">
+        <p>💖 Yay! You made me the happiest person!</p>
+        <button onclick="closeYes()">OK</button>
+    </div>
+</div>
+
+<!-- NOT NO POPUP -->
+<div id="noPopup" class="popup">
+    <div class="popup-content">
+        <p>😊 That still means YES!</p>
+        <button onclick="closeNo()">OK</button>
+    </div>
+</div>
+
+<script>
+    function openYes() {
+        document.getElementById("yesPopup").style.display = "flex";
+    }
+    function closeYes() {
+        document.getElementById("yesPopup").style.display = "none";
+    }
+    function openNo() {
+        document.getElementById("noPopup").style.display = "flex";
+    }
+    function closeNo() {
+        document.getElementById("noPopup").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
